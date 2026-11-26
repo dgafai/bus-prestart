@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#1F3D7D">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Pre-start">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="logo.svg">
+<link rel="apple-touch-icon" href="logo.svg">
+<title>Kelsian Pre-start</title>
+<style>
+:root{--navy:#1F3D7D;--orange:#FFA401;--red:#C8102E;--green:#1E8E3E;--bg:#F4F6FA}
+*{box-sizing:border-box}html,body{margin:0;background:var(--bg);font:17px/1.4 -apple-system,system-ui,Segoe UI,Roboto,sans-serif;color:#1a1a1a}
+header{position:sticky;top:0;z-index:5;background:var(--navy);color:#fff;display:flex;align-items:center;gap:10px;padding:10px 14px;padding-top:max(10px,env(safe-area-inset-top))}
+header img{width:36px;height:36px;background:#fff;border-radius:6px;padding:3px}header h1{font-size:18px;margin:0;flex:1}
+.badge{font-size:12px;background:var(--orange);color:#fff;border-radius:10px;padding:2px 8px}
+main{padding:14px;padding-bottom:110px;max-width:640px;margin:auto}
+h2{margin:6px 0 12px;color:var(--navy)}h3{margin:18px 0 8px;color:var(--navy)}
+.card{background:#fff;border-radius:12px;padding:14px;margin:0 0 12px;box-shadow:0 1px 3px #0002}
+button{font:inherit;border:0;border-radius:12px;padding:14px 16px;min-height:52px;cursor:pointer}
+.btn{background:var(--navy);color:#fff;width:100%;font-weight:600;margin:6px 0}
+.btn.o{background:var(--orange)}.btn.ghost{background:#fff;color:var(--navy);border:2px solid var(--navy)}.btn.red{background:var(--red)}
+.list button.row{display:block;width:100%;text-align:left;background:#fff;margin:0 0 8px;box-shadow:0 1px 3px #0002;font-size:19px}
+.status{font-size:15px;margin-top:4px}.ok{color:var(--green)}.no{color:#8a5a00}.dno{color:#fff;background:var(--red);padding:4px 8px;border-radius:6px;display:inline-block;font-weight:700}
+.bus.dnoc{border:3px solid var(--red)}
+input,select,textarea{font:inherit;width:100%;padding:13px;border:2px solid #c5ccd8;border-radius:10px;background:#fff;margin:4px 0 8px}
+label.chk{display:flex;gap:12px;align-items:flex-start;padding:12px;border-radius:10px;background:#fff;margin:0 0 8px;box-shadow:0 1px 2px #0002}
+label.chk input{width:28px;height:28px;margin:0;flex:none}
+.item{background:#fff;border-radius:12px;padding:12px;margin:0 0 10px;box-shadow:0 1px 3px #0002;scroll-margin:90px}
+.must{display:inline-block;font-size:11px;font-weight:800;background:var(--red);color:#fff;border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle}
+.ans{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:10px}
+.ans button{background:#e9edf3;font-weight:700;font-size:18px}
+.ans button.sel[data-a=OK]{background:var(--green);color:#fff}.ans button.sel[data-a=FAULT]{background:var(--red);color:#fff}.ans button.sel[data-a=NA]{background:#666;color:#fff}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}.chips button{min-height:42px;padding:8px 12px;background:#fde8eb;color:var(--red);font-size:15px}.chips button.sel{background:var(--red);color:#fff}
+.missed{outline:4px solid var(--red);outline-offset:2px}
+.missed::after{content:"You missed this one";display:block;color:var(--red);font-weight:700;margin-top:8px}
+#err{position:sticky;top:62px;z-index:4;background:var(--red);color:#fff;font-weight:700;padding:12px 14px;border-radius:10px;margin-bottom:10px}
+.foot{position:fixed;left:0;right:0;bottom:0;background:#fff;padding:10px 14px;padding-bottom:max(10px,env(safe-area-inset-bottom));box-shadow:0 -2px 8px #0002;display:flex;gap:10px;z-index:6}
+.foot button{flex:1;margin:0}
+canvas#sig{width:100%;height:200px;background:#fff;border:2px dashed #8895aa;border-radius:10px;touch-action:none}
+.big{font-size:22px;font-weight:800}.muted{color:#5a6577;font-size:14px}.thumb{max-width:120px;border-radius:8px;margin:4px}
+.rec td{padding:4px 6px;border-bottom:1px solid #eee;vertical-align:top}.rec table{width:100%;border-collapse:collapse;font-size:15px}
+.prog{height:8px;background:#dde3ec;border-radius:4px;margin-bottom:12px}.prog div{height:8px;background:var(--orange);border-radius:4px}
+</style>
+</head>
+<body>
+<header><img src="logo.svg" alt=""><h1 id="co">Kelsian Group</h1><span id="net" class="badge" hidden></span></header>
+<main id="app"><p>Loading…</p></main>
+<script src="config.js"></script>
+<script src="checklists.js"></script>
+<script src="mock.js"></script>
+<script src="app.js"></script>
+<script>if('serviceWorker' in navigator)navigator.serviceWorker.register('sw.js');</script>
+</body>
+</html>
