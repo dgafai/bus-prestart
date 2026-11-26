@@ -1,6 +1,6 @@
 // Network-first with a 4-second timeout, falling back to the cache.
-const V = 'prestart-v2';
-const ASSETS = ['./', 'index.html', 'app.js', 'checklists.js', 'mock.js', 'config.js', 'manifest.json', 'logo.svg'];
+const V = 'prestart-v3';
+const ASSETS = ['./', 'index.html', 'app.js', 'checklists.js', 'mock.js', 'config.js', 'manifest.json', 'logo.svg', 'icon-192.png', 'icon-512.png'];
 self.addEventListener('install', e => { e.waitUntil(caches.open(V).then(c => c.addAll(ASSETS))); self.skipWaiting(); });
 self.addEventListener('activate', e => {
   e.waitUntil(caches.keys().then(ks => Promise.all(ks.filter(k => k !== V).map(k => caches.delete(k)))).then(() => self.clients.claim()));
